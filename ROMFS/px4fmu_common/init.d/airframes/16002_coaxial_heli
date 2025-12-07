@@ -1,0 +1,43 @@
+#!/bin/sh
+#
+# @name Coaxial Helicopter
+#
+# @type Helicopter
+# @class Copter
+#
+# @board px4_fmu-v2 exclude
+# @board bitcraze_crazyflie exclude
+#
+
+. ${R}etc/init.d/rc.heli_defaults
+
+# Disable PID gains for initial setup. These should be enabled after setting the FF gain.
+# P is expected to be lower than FF.
+param set-default MC_ROLLRATE_P 0
+param set-default MC_ROLLRATE_I 0
+param set-default MC_ROLLRATE_D 0
+param set-default MC_ROLLRATE_FF 0.1
+param set-default MC_PITCHRATE_P 0
+param set-default MC_PITCHRATE_I 0
+param set-default MC_PITCHRATE_D 0
+param set-default MC_PITCHRATE_FF 0.1
+
+param set-default CA_ROTOR_COUNT 2
+
+param set-default CA_ROTOR0_PX  0
+param set-default CA_ROTOR0_PY  0
+param set-default CA_ROTOR0_PZ  0.3
+
+param set-default CA_ROTOR1_PX  0
+param set-default CA_ROTOR1_PY  0
+param set-default CA_ROTOR1_PZ -0.3
+
+param set-default CA_SP0_COUNT 2           # 2 个斜盘舵机
+
+param set-default CA_SP0_ANG0   0          # 0° → 纯 pitch 杠杆
+param set-default CA_SP0_ANG1  90          # 90° → 纯 roll 杠杆
+param set-default CA_SP0_ARM_L0 1
+param set-default CA_SP0_ARM_L1 1
+
+param set-default MAV_TYPE 3
+param set-default CA_AIRFRAME 12

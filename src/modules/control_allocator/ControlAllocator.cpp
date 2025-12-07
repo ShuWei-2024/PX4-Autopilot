@@ -264,7 +264,10 @@ ControlAllocator::update_effectiveness_source()
 		case EffectivenessSource::HELICOPTER_COAXIAL:
 			tmp = new ActuatorEffectivenessHelicopterCoaxial(this);
 			break;
-
+		case EffectivenessSource::BICOPTER_WITH_TILT:
+			tmp = new ActuatorEffectivenessBCTilt(this);
+			break;
+			
 		case EffectivenessSource::SPACECRAFT_2D:
 			// spacecraft_allocation does allocation and publishes directly to actuator_motors topic
 			break;
