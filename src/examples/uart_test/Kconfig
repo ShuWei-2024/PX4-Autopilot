@@ -1,0 +1,5 @@
+menuconfig EXAMPLES_UART_TEST
+	bool "uart_test"
+	default n
+	---help---
+		Enable support for uart_test
